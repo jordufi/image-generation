@@ -1,0 +1,11 @@
+services:
+  image-generator:
+    image: sdonis/image-generator:0.0.1
+    build: .
+    ports:
+      - "9092:9092"
+    environment:
+      - COMFYUI_ADDRESS=<YOUR_IP_ADRESS>:8188
+    volumes:
+      - ./outputs:/app/outputs
+    restart: unless-stopped
